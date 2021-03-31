@@ -675,7 +675,7 @@ switch (_p_en) do {
         btc_type_motorized = btc_type_motorized - ["I_E_Truck_02_MRL_F"];
         btc_type_motorized_armed = btc_type_motorized_armed - ["I_E_Truck_02_MRL_F"] + ["CUP_I_Hilux_SPG9_IND_G_F","CUP_I_Hilux_M2_IND_G_F","CUP_I_Hilux_DSHKM_IND_G_F","CUP_I_Hilux_AGS30_IND_G_F"];
 
-        btc_type_mg = btc_type_mg - ["I_E_Radar_System_01_F","I_E_SAM_System_03_F","I_E_HMG_01_A_F",;
+        btc_type_mg = btc_type_mg - ["I_E_Radar_System_01_F","I_E_SAM_System_03_F","I_E_HMG_01_A_F"];
         btc_type_gl = btc_type_gl - ["I_E_GMG_01_A_F"];
     };
 };
