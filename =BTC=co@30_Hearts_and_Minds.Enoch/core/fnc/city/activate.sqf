@@ -298,10 +298,10 @@ btc_patrol_active = btc_patrol_active - [grpNull];
 private _numberOfPatrol = count btc_patrol_active;
 if (_numberOfPatrol < _p_patrol_max) then {
     private _offset = 0;
-    private _max = 2;
+    private _max = 3;
     if (_has_en) then {
-        _max = 3;
-        _offset = 3/2;
+        _max = 4;
+        _offset = 5/2;
     };
     private _r = (_offset + random _max) min (_p_patrol_max - _numberOfPatrol);
     for "_i" from 1 to round _r do {
