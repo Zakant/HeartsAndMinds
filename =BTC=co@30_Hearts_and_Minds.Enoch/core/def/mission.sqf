@@ -673,7 +673,7 @@ switch (_p_en) do {
     case "IND_E_F" : {  // LDF (Independent)
         btc_type_units = btc_type_units - ["I_E_soldier_UGV_02_Science_F","I_E_Support_AMG_F","I_E_Support_AMort_F","I_E_Soldier_AAA_F","I_E_Soldier_AAT_F","I_E_Soldier_CBRN_F","I_E_Helicrew_F","I_E_Helipilot_F","I_E_Scientist_F","I_E_Scientist_Unarmed_F","I_E_Soldier_AT_F","I_E_Soldier_AA_F","I_E_Officer_Parade_F","I_E_Officer_Parade_Veteran_F","I_E_Soldier_unarmed_F","I_E_Survivor_F","I_E_Soldier_UAV_F","I_E_soldier_UAV_06_F","I_E_soldier_UAV_06_medical_F","I_E_soldier_UGV_02_Demining_F","I_E_Crew_F"];
 
-        btc_type_crewmen = btc_type_crewmen + ["I_E_Crew_F"];
+        btc_type_crewmen = [btc_type_crewmen, "I_E_Crew_F"];
 
         btc_type_motorized = btc_type_motorized - ["I_E_Truck_02_MRL_F"];
         btc_type_motorized_armed = btc_type_motorized_armed - ["I_E_Truck_02_MRL_F"] + ["CUP_I_Hilux_SPG9_IND_G_F","CUP_I_Hilux_M2_IND_G_F","CUP_I_Hilux_DSHKM_IND_G_F","CUP_I_Hilux_AGS30_IND_G_F"];
