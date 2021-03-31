@@ -63,6 +63,9 @@ btc_p_veh_armed_spawn_more = ("btc_p_veh_armed_spawn_more" call BIS_fnc_getParam
 btc_p_patrol_max = "btc_p_patrol_max" call BIS_fnc_getParamValue;
 btc_p_civ_max_veh = "btc_p_civ_max_veh" call BIS_fnc_getParamValue;
 
+btc_p_patrol_nbase = "btc_p_patrol_nbase" call BIS_fnc_getParamValue;
+btc_p_patrol_random = "btc_p_patrol_random" call BIS_fnc_getParamValue;
+
 //<< Gameplay options >>
 btc_p_sea = ("btc_p_sea" call BIS_fnc_getParamValue) isEqualTo 1;
 btc_p_chem = ("btc_p_chem" call BIS_fnc_getParamValue) isEqualTo 1;
@@ -670,7 +673,7 @@ switch (_p_en) do {
     case "IND_E_F" : {  // LDF (Independent)
         btc_type_units = btc_type_units - ["I_E_soldier_UGV_02_Science_F","I_E_Support_AMG_F","I_E_Support_AMort_F","I_E_Soldier_AAA_F","I_E_Soldier_AAT_F","I_E_Soldier_CBRN_F","I_E_Helicrew_F","I_E_Helipilot_F","I_E_Scientist_F","I_E_Scientist_Unarmed_F","I_E_Soldier_AT_F","I_E_Soldier_AA_F","I_E_Officer_Parade_F","I_E_Officer_Parade_Veteran_F","I_E_Soldier_unarmed_F","I_E_Survivor_F","I_E_Soldier_UAV_F","I_E_soldier_UAV_06_F","I_E_soldier_UAV_06_medical_F","I_E_soldier_UGV_02_Demining_F","I_E_Crew_F"];
 
-        btc_type_crewmen = [btc_type_crewmen, "I_E_Crew_F"];
+        btc_type_crewmen = btc_type_crewmen + ["I_E_Crew_F"];
 
         btc_type_motorized = btc_type_motorized - ["I_E_Truck_02_MRL_F"];
         btc_type_motorized_armed = btc_type_motorized_armed - ["I_E_Truck_02_MRL_F"] + ["CUP_I_Hilux_SPG9_IND_G_F","CUP_I_Hilux_M2_IND_G_F","CUP_I_Hilux_DSHKM_IND_G_F","CUP_I_Hilux_AGS30_IND_G_F"];

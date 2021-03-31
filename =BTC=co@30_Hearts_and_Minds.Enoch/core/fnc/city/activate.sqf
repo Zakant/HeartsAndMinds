@@ -120,7 +120,7 @@ if !(_data_units isEqualTo []) then {
 
     if (_has_en) then {
         for "_i" from 1 to (round (_p_mil_group_ratio * (1 + random _max_number_group))) do {
-            [_city, _spawningRadius, 1 + round random [0, 1, 2], random 1] call btc_fnc_mil_create_group;
+            [_city, _spawningRadius, btc_p_patrol_nbase + round random [btc_p_patrol_random], random 1] call btc_fnc_mil_create_group;
         };
     };
 
