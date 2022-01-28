@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_createUnits
+Function: btc_mil_fnc_createUnits
 
 Description:
     Fill me when you edit me !
@@ -17,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_createUnits;
+        _result = [] call btc_mil_fnc_createUnits;
     (end)
 
 Author:
@@ -27,7 +27,7 @@ Author:
 
 params [
     ["_group", grpNull, [grpNull]],
-    ["_pos", [0, 0, 0], [[]]],
+    ["_pos", [0, 0, 0], [[], createHashMap]],
     ["_number", 0, [0]],
     ["_pos_iswater", false, [false]],
     ["_type_units", btc_type_units, [[]]],
