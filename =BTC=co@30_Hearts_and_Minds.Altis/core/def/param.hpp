@@ -69,7 +69,7 @@ class Params {
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TICKETSATSTART"]);
         values[]={-1,0,1,2,3,4,5,10,15,20,25,30,50,70,100,150,200};
         texts[]={$STR_DISABLED,"0","1","2","3","4","5","10","15","20","25","30","50","70","100","150","200"};
-        default = 20;
+        default = 3;
     };
     class btc_p_respawn_ticketsShare { // Tickets are share between:
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TICKETSHARE"]);
