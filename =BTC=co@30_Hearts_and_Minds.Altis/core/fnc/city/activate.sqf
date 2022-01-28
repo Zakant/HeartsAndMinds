@@ -326,14 +326,9 @@ if (_civKilled isNotEqualTo []) then {
 btc_patrol_active = btc_patrol_active - [grpNull];
 private _numberOfPatrol = count btc_patrol_active;
 if (_numberOfPatrol < _p_patrol_max) then {
-    private _offset = 0;
-    private _max = 2;
-    if (_has_en) then {
-        _max = 3;
-        _offset = 3/2;
-    };
-    private _r = (_offset + random _max) min (_p_patrol_max - _numberOfPatrol) * btc_p_mil_patrol_scale;
-    for "_i" from 1 to round _r do {
+    private _min = [0, 1] select _has_en;
+    private _addMilPatrol = (_min + random 1) min (_p_patrol_max - _numberOfPatrol);
+    for "_i" from 1 to round _addMilPatrol do {
         private _group = createGroup btc_enemy_side;
         btc_patrol_active pushBack _group;
         _group setVariable ["no_cache", true];

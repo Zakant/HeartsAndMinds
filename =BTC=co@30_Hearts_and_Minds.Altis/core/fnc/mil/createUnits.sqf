@@ -34,18 +34,14 @@ params [
     ["_type_divers", btc_type_divers, [[]]]
 ];
 
-for "_i" from 1 to round (_number * btc_p_mil_unit_scale) do {
+for "_i" from 1 to (_number * btc_p_mil_unit_scale) do {
     private _unit_type = if (_pos_iswater) then {
         selectRandom _type_divers;
     } else {
         selectRandom _type_units;
     };
 
-    while {(_unit_type in btc_type_at) && ((random 1) > btc_at_prob)} do {
-        _unit_type = selectRandom _type_units;
-    };
-
-    [_group, _unit_type, _pos] call btc_fnc_delay_createUnit;
+    [_group, _unit_type, _pos] call btc_delay_fnc_createUnit;
 };
 
 _group

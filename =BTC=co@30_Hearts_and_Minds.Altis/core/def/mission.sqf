@@ -75,7 +75,6 @@ btc_p_patrol_max = "btc_p_patrol_max" call BIS_fnc_getParamValue;
 btc_p_civ_max_veh = "btc_p_civ_max_veh" call BIS_fnc_getParamValue;
 
 btc_p_mil_unit_scale = ("btc_p_mil_unit_scale" call BIS_fnc_getParamValue)/100;
-btc_p_mil_patrol_scale = ("btc_p_mil_patrol_scale" call BIS_fnc_getParamValue)/100;
 
 //<< Gameplay options >>
 btc_p_sea = ("btc_p_sea" call BIS_fnc_getParamValue) isEqualTo 1;
@@ -140,7 +139,7 @@ if (isServer) then {
     btc_delay_time = 0;
 
     //City
-    btc_city_radius = _p_city_radius;
+    btc_city_radiusOffset = _p_city_radiusOffset;
     btc_city_blacklist = ["Sagonisi", "SagonisiIsland"];//NAME FROM CFG
 
     //Civ

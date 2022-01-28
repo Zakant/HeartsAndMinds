@@ -108,13 +108,6 @@ class Params {
         default = 0;
     };
 
-    class btc_p_AT_prob { // Anti-tank probability:
-        title = "      Enemy AT probability";
-        values[]={0,10,20,30,40,50,60,70,80,90,100};
-        texts[]={"0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
-        default = 50;
-    };
-
     class btc_p_tank { // Enemy uses Tank:
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_PARAM_FAC_ETANK"]);
         values[]={0,1};
@@ -205,13 +198,6 @@ class Params {
         values[] = {25, 50, 75, 100, 125, 150, 175, 200};
         texts[] = {"25%", "50%", "75%", "100%", "125%", "150%", "175%", "200%"};
         default = 125;
-    };
-
-    class btc_p_mil_patrol_scale { 
-        title = "      Scale for patrol count";
-        values[] = {25, 50, 75, 100, 125, 150, 175, 200};
-        texts[] = {"25%", "50%", "75%", "100%", "125%", "150%", "175%", "200%"};
-        default = 100;
     };
 
     class btc_p_IED_title { // << IED options >>
