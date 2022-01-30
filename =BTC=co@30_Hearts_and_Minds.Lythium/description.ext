@@ -29,7 +29,12 @@ class RscTitles {
 
 class CfgFunctions {
     // add your own functions below
+    #include "KPCF\KPCF_functions.hpp"
 };
+
+// KP Crate filler includes
+#include "KPGUI\KPGUI_defines.hpp"
+#include "KPCF\ui\KPCF_dialog.hpp"
 
 // CBA XEH
 class Extended_PreInit_EventHandlers {
