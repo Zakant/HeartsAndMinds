@@ -135,7 +135,7 @@ if (isServer) then {
 
     //City
     btc_city_radiusOffset = _p_city_radiusOffset;
-    btc_city_blacklist = [];//NAME FROM CFG
+    btc_city_blacklist = ["FabianoCampBase", "Arobster"];//NAME FROM CFG
 
     //Civ
     btc_civ_veh_active = [];
@@ -623,6 +623,10 @@ switch (_p_en) do {
         btc_type_gl = btc_type_gl;
     };*/
     case "OPF_G_F" : {
+        btc_type_units = btc_type_units - ["O_G_Soldier_LAT_F"];  // Remove AT soldiers.
+
+        btc_type_at = ["O_G_Soldier_LAT2_F"];
+
         btc_type_motorized = btc_type_motorized + ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
         btc_type_motorized_armed = btc_type_motorized_armed + ["I_Heli_light_03_F"];
     };
@@ -630,6 +634,10 @@ switch (_p_en) do {
         btc_type_motorized = btc_type_motorized + ["I_G_Offroad_01_repair_F", "I_G_Offroad_01_F", "I_G_Quadbike_01_F", "I_G_Van_01_fuel_F", "I_Truck_02_transport_F", "I_Truck_02_covered_F"];
         btc_type_motorized_armed = btc_type_motorized_armed + ["I_Heli_light_03_F", "I_G_Offroad_01_F"];
         btc_type_units = btc_type_units - ["I_C_Soldier_Camo_F"];
+    };
+    case "CUP_O_TK_MILITIA": {  // Takistani militia
+        btc_type_units = btc_type_units - ["CUP_O_TK_INS_Soldier_AT"];  // Remove AT soldiers
+        btc_type_at = ["CUP_O_TK_INS_Soldier_AT"];
     };
 };
 
