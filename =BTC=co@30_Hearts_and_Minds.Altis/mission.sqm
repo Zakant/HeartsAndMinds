@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=1717;
+		nextID=1722;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=86;
+		nextID=98;
 	};
 	class Camera
 	{
-		pos[]={14332.866,71.483925,13060.965};
-		dir[]={-0.66550833,-0.6615591,-0.34559825};
-		up[]={-0.58711451,0.74989301,-0.30488837};
-		aside[]={-0.46086338,0,0.88747096};
+		pos[]={14296.622,40.518658,13052.244};
+		dir[]={-0.54027957,-0.68226683,-0.492558};
+		up[]={-0.50418931,0.73110288,-0.45965531};
+		aside[]={-0.67371792,-4.1094609e-008,0.73899126};
 	};
 };
 binarizationWanted=0;
@@ -550,24 +550,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"ARRAY"
-						};
-					};
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnButton";
 			expression="true";
 			class Value
@@ -585,12 +567,49 @@ class CustomAttributes
 				};
 			};
 		};
+		class Attribute1
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+				};
+			};
+		};
 		nAttributes=2;
 	};
 	class Category1
 	{
 		name="Scenario";
 		class Attribute0
+		{
+			property="EnableTargetDebug";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		class Attribute1
 		{
 			property="cba_settings_hash";
 			expression="false";
@@ -969,7 +988,7 @@ class CustomAttributes
 				};
 			};
 		};
-		class Attribute1
+		class Attribute2
 		{
 			property="EnableDebugConsole";
 			expression="true";
@@ -984,11 +1003,103 @@ class CustomAttributes
 							"SCALAR"
 						};
 					};
-					value=0;
+					value=1;
 				};
 			};
 		};
-		nAttributes=2;
+		class Attribute3
+		{
+			property="ENH_SPR";
+			expression="if (!is3DEN && _value # 0 > 0 && !isMultiplayer) then      {        ENH_SPR_Ruleset = _value param [0, 0];        ENH_SPR_Delay = _value param [1, 20];        ENH_SPR_CanDie = _value param [2, false];        ENH_SPR_RestoreLoadout = _value param [3, false];        ENH_SPR_OnRespawnCode = compile (_value param [4, '']);        ENH_SPR_Positions =        [          allMapMarkers select {'respawn_east' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_west' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_guerilla' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_civilian' in toLower _x} apply {getMarkerPos _x}        ];        {          _x setVariable ['ENH_SPR_OriginalSide', side group _x];          _x setVariable ['ENH_SPR_OriginalLoadout', getUnitLoadout _x];          _x addEventHandler ['handleDamage',          {            params ['_unit', '', '_damage', '', '', '_index'];            if (!alive _unit || lifeState _unit isEqualTo 'INCAPACITATED') exitWith {0};            if (_unit getVariable ['ENH_SPR_Tickets', 0] == 0) then            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              _damage;            };            if (ENH_SPR_CanDie && _index in [1, 2] && _damage >= 1) exitWith            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              1;            };            if (_index < 8 && (_damage min 0.95) == 0.95) then            {              setAccTime 1;              _unit allowDamage false;              _unit setCaptive true;              _unit setUnconscious true;              _unit setVariable ['ENH_SPR_Tickets', (_unit getVariable ['ENH_SPR_Tickets', 0]) - 1];              if (isPlayer _unit) then {enableTeamSwitch false} else {removeSwitchableUnit _unit};              moveOut _unit;              _unit spawn ENH_fnc_SPR_respawnTimer;            };            _damage min 0.95;          }];        } forEach (allUnits select {_x getVariable ['ENH_SPR_Tickets', 0] > 0});                ENH_fnc_SPR_respawn =        {          scriptName 'ENH_Attribute_SPR_Respawn';          params ['_unit'];          if (isPlayer _unit) then {enableTeamSwitch true} else {addSwitchableUnit _unit};          if (ENH_SPR_RestoreLoadout) then {_unit setUnitLoadout (_unit getVariable 'ENH_SPR_OriginalLoadout')};          private _sideID = (_unit getVariable 'ENH_SPR_OriginalSide') call BIS_fnc_sideID;          private _positions = ENH_SPR_Positions select _sideID;          if (_positions isNotEqualTo []) then          {            switch (ENH_SPR_Ruleset) do            {              case 3:              {                _unit setPos (([_positions, [], {_unit distance _x}, 'ASCEND'] call BIS_fnc_sortBy) select 0);              };              case 2:              {                _unit setPos selectRandom _positions;              };            };          };          _unit setUnconscious false;          _unit allowDamage true;          _unit setDamage 0;          _unit switchMove '';          _unit call ENH_SPR_OnRespawnCode;          _unit spawn          {            sleep 8;            _this setCaptive false;          };        };                ENH_fnc_SPR_respawnTimer =        {          scriptName 'ENH_Attribute_SPR_RespawnTimer';          params ['_unit'];          private _respawnTime = time + ENH_SPR_Delay;          if (isPlayer _unit) then          {            private _ctrlRespawnTimer = (call BIS_fnc_displayMission) ctrlCreate ['RscStructuredText',-1];            _ctrlRespawnTimer ctrlSetPosition [0.25, 0, 0.5, 0.06];            _ctrlRespawnTimer ctrlSetBackgroundColor [0, 0, 0, 0.1];            _ctrlRespawnTimer ctrlCommit 0;            ENH_SPR_OriginalVolume = [soundVolume, musicVolume, radioVolume, speechVolume, environmentVolume];            0 cutText ['', 'BLACK OUT', 0.3];            0.3 fadeSound 0;            0.3 fadeMusic 0;            0.3 fadeRadio 0;            0.3 fadeSpeech 0;            0.3 fadeEnvironment 0;            showChat false;            while {time < _respawnTime} do            {              _ctrlRespawnTimer ctrlSetStructuredText parseText format ['<t size=''1.25'' color=''#218a36'' align=''center''>%1</t>', [(_respawnTime - time), 'HH:MM'] call BIS_fnc_timeToString];              sleep 0.1;            };            ctrlDelete _ctrlRespawnTimer;            0 cutText ['', 'BLACK IN', 8];            8 fadeSound (ENH_SPR_OriginalVolume # 0);            8 fadeMusic (ENH_SPR_OriginalVolume # 1);            8 fadeRadio (ENH_SPR_OriginalVolume # 2);            8 fadeSpeech (ENH_SPR_OriginalVolume # 3);            8 fadeEnvironment (ENH_SPR_OriginalVolume # 4);            showChat true;            [              ['Respawned'],              [format ['GRID: %1', mapGridPosition _unit]],              [format ['Tickets left: %1', _unit getVariable 'ENH_SPR_Tickets']]            ] spawn BIS_fnc_EXP_camp_SITREP;          }          else          {            if ((side player getFriend (_unit getVariable 'ENH_SPR_OriginalSide')) >= 0.6) then            {              [                str _unit, 'onEachFrame',                {                  drawIcon3D ['\a3\Modules_f\data\portraitRespawn_ca.paa', [0.13, 0.54, 0.21, 0.8], ASLToAGL ((_this # 0) modelToWorldVisualWorld [0, 0, 1]), 1, 1, 0, str round ((_this # 1) - time), 2];                },                [_unit, _respawnTime]              ] call BIS_fnc_addStackedEventHandler;            };            sleep ENH_SPR_Delay;          };          [str _unit, 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;          _unit call ENH_fnc_SPR_respawn;        };      }";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=5;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"SCALAR"
+									};
+								};
+								value=0;
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"SCALAR"
+									};
+								};
+								value=20;
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=0;
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"BOOL"
+									};
+								};
+								value=0;
+							};
+						};
+						class Item4
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=4;
 	};
 };
 class Mission
@@ -1020,7 +1131,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=419;
+		items=423;
 		class Item0
 		{
 			dataType="Marker";
@@ -1334,14 +1445,14 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14294.92,4.9404297,13029.501};
-				angles[]={0,0,0.0026520467};
+				position[]={14294.92,4.9397883,13029.501};
+				angles[]={0,0,0.0026529003};
 			};
 			name="btc_curator";
 			init="this addEventHandler ['CuratorObjectPlaced',{_this call btc_fnc_eh_CuratorObjectPlaced}];";
 			id=71;
 			type="ModuleCurator_F";
-			atlOffset=0.00064182281;
+			atlOffset=4.7683716e-007;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4928,7 +5039,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14328.116,8.4135742,13013.817};
-				angles[]={-0,1.5896012,-0};
+				angles[]={0,1.5896012,0};
 			};
 			side="Empty";
 			flags=4;
@@ -4945,7 +5056,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14328.254,8.4165859,13010.873};
-				angles[]={0,1.5896012,-0};
+				angles[]={0,1.5896012,0};
 			};
 			side="Empty";
 			flags=4;
@@ -5837,7 +5948,6 @@ class Mission
 			};
 			id=974;
 			type="Land_Stretcher_01_olive_F";
-			atlOffset=0.0006506443;
 		};
 		class Item177
 		{
@@ -9818,8 +9928,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -9831,7 +9941,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=-45;
+							value=30;
 						};
 					};
 				};
@@ -10008,8 +10118,8 @@ class Mission
 				};
 				class Attribute10
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -10021,7 +10131,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=30;
+							value=-45;
 						};
 					};
 				};
@@ -10541,7 +10651,7 @@ class Mission
 			{
 				position[]={14362.592,6.7516608,13053.429};
 			};
-			init="if (isServer) then {" \n "    _setRandom = [0,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1.0]; " \n "    skipTime -24;" \n "    0 setOvercast selectRandom _setRandom;" \n "    skipTime 24;" \n "    sleep 0.1;" \n "    simulWeatherSync;" \n "};";
+			init="if (isServer) then {" \n "  [] spawn {" \n "    _setRandom = [0,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1.0]; " \n "    skipTime -24;" \n "    0 setOvercast selectRandom _setRandom;" \n "    skipTime 24;" \n "    sleep 0.1;" \n "    simulWeatherSync;" \n "  };" \n "};";
 			id=1256;
 			type="VirtualAISquad";
 			atlOffset=2.2639999;
@@ -11633,8 +11743,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -11646,7 +11756,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=-30;
+							value=10;
 						};
 					};
 				};
@@ -11804,8 +11914,8 @@ class Mission
 				};
 				class Attribute9
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -11817,7 +11927,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=10;
+							value=-30;
 						};
 					};
 				};
@@ -11860,8 +11970,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -11873,7 +11983,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=-45;
+							value=30;
 						};
 					};
 				};
@@ -12050,8 +12160,8 @@ class Mission
 				};
 				class Attribute10
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
@@ -12063,7 +12173,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=30;
+							value=-45;
 						};
 					};
 				};
@@ -13937,8 +14047,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14286.1,4.9071746,13030.334};
-						angles[]={0.0013372133,4.6706839,0.014664836};
+						position[]={14286.1,4.9071946,13030.334};
+						angles[]={0.0013439035,4.6706753,0.014660765};
 					};
 					side="West";
 					flags=6;
@@ -13946,13 +14056,55 @@ class Mission
 					{
 						skill=0.60000002;
 						init="this setVariable [""side_mission"",true]";
+						name="p_officer";
 						description="Officer";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1661;
 					type="B_officer_F";
-					atlOffset=-2.0027161e-005;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male02ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -14940,7 +15092,6 @@ class Mission
 			{
 			};
 			id=1660;
-			atlOffset=-2.0027161e-005;
 		};
 		class Item408
 		{
@@ -16369,15 +16520,14 @@ class Mission
 					dataType="Logic";
 					class PositionInfo
 					{
-						position[]={14306.802,4.8737946,13021.109};
-						angles[]={0.0026520467,3.9787772,6.259192};
+						position[]={14307.025,4.8638282,13022.991};
+						angles[]={6.2618575,3.6440728,0};
 					};
-					areaSize[]={1.4003041,0,3.8902194};
+					areaSize[]={1.4,0,3.8900001};
 					areaIsRectangle=1;
 					flags=1;
 					id=1592;
 					type="ModuleHideTerrainObjects_F";
-					atlOffset=2.8610229e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -16594,7 +16744,7 @@ class Mission
 				};
 			};
 			id=1691;
-			atlOffset=-0.077323437;
+			atlOffset=-0.068402767;
 		};
 		class Item411
 		{
@@ -16702,7 +16852,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14327.271,7.2992358,13012.438};
-				angles[]={0,4.6435609,-0};
+				angles[]={0,4.6435609,0};
 			};
 			side="Empty";
 			flags=5;
@@ -16711,7 +16861,7 @@ class Mission
 			};
 			id=1714;
 			type="Land_Cargo_Patrol_V3_F";
-			atlOffset=-0.099428892;
+			atlOffset=-0.099365473;
 		};
 		class Item418
 		{
@@ -16905,6 +17055,168 @@ class Mission
 				};
 				nAttributes=7;
 			};
+		};
+		class Item419
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14295.338,5.3800383,13025.805};
+				angles[]={0,0,0.0026529003};
+			};
+			name="btc_curator_Officer";
+			init="this addEventHandler ['CuratorObjectPlaced',{_this call btc_fnc_eh_CuratorObjectPlaced}];";
+			id=1717;
+			type="ModuleCurator_F";
+			atlOffset=0.43100023;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="p_officer";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item420
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14328.804,3.4036131,12997.016};
+				angles[]={0,2.3385773,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1718;
+			type="Land_PortableLight_double_F";
+		};
+		class Item421
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14317.07,3.8877282,12994.631};
+				angles[]={0,3.7092683,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1719;
+			type="Land_PortableLight_double_F";
+			atlOffset=2.3841858e-007;
+		};
+		class Item422
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14307.25,10.887472,13024.935};
+				angles[]={0,3.4800885,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1721;
+			type="Land_LampHalogen_F";
 		};
 	};
 	class Connections
