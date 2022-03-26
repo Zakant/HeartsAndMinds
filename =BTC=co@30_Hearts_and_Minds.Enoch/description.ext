@@ -27,9 +27,15 @@ class RscTitles {
 
 #include "core\fnc\task\taskTypes.hpp"
 
+// Crate filler
+#include "KPGUI\KPGUI_defines.hpp"
+#include "KPCF\ui\KPCF_dialog.hpp"
+
 class CfgFunctions {
     // add your own functions below
+    #include "KPCF\KPCF_functions.hpp"
 };
+
 
 // CBA XEH
 class Extended_PreInit_EventHandlers {
