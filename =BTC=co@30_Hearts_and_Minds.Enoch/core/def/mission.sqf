@@ -133,7 +133,7 @@ if (isServer) then {
     btc_delay_time = 0;
 
     //City
-    btc_city_blacklist = [];//NAME FROM CFG
+    btc_city_blacklist = ["Lembork", "Karlin"];//NAME FROM CFG
     btc_p_city_free_trigger_condition = if (_p_city_free_trigger isEqualTo 0) then {
         "thisList isEqualTo []"
     } else {
@@ -648,6 +648,10 @@ switch (_p_en) do {
         btc_type_motorized = btc_type_motorized + ["I_G_Offroad_01_repair_F", "I_G_Offroad_01_F", "I_G_Quadbike_01_F", "I_G_Van_01_fuel_F", "I_Truck_02_transport_F", "I_Truck_02_covered_F"];
         btc_type_motorized_armed = btc_type_motorized_armed + ["I_Heli_light_03_F", "I_G_Offroad_01_F"];
         btc_type_units = btc_type_units - ["I_C_Soldier_Camo_F"];
+    };
+    case "CUP_I_NAPA" : { // National party of chernarus
+        btc_type_motorized = btc_type_motorized + ["I_G_Van_02_transport_F"]; // Add the standard van
+        btc_type_units = btc_type_units - ["CUP_I_GUE_Soldier_AT", "CUP_I_GUE_Soldier_AA"]; // Remove heavy at and iglas
     };
 };
 
