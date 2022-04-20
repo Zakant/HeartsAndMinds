@@ -216,9 +216,6 @@ profileNamespace setVariable [format ["btc_hm_%1_tags", _name], +_tags_propertie
 
 //Player respawn tickets
 if (btc_p_respawn_ticketsAtStart >= 0) then {
-    if (btc_p_respawn_ticketsShare) then {
-        btc_respawn_tickets set [str btc_player_side, [btc_player_side] call BIS_fnc_respawnTickets];
-    };
     profileNamespace setVariable [format ["btc_hm_%1_respawnTickets", _name], +btc_respawn_tickets];
 
     private _deadBodyPlayers = (btc_body_deadPlayers  - [objNull]) apply {[
@@ -232,6 +229,17 @@ if (btc_p_respawn_ticketsAtStart >= 0) then {
     ]};
     profileNamespace setVariable [format ["btc_hm_%1_deadBodyPlayers", _name], +_deadBodyPlayers];
 };
+
+//Player slots
+{_x call btc_slot_fnc_serializeState} forEach (allPlayers - entities "HeadlessClient_F");
+private _slots_serialized = +btc_slots_serialized;
+{
+    if (btc_debug_log) then {
+        [format ["btc_slots_serialized %1", _y], __FILE__, [false]] call btc_debug_fnc_message;
+    };
+    _y set [6, typeOf (_y select 6)];
+} forEach _slots_serialized;
+profileNamespace setVariable [format ["btc_hm_%1_slotsSerialized", _name], +_slots_serialized];
 
 //Player Markers
 private _player_markers = allMapMarkers select {"_USER_DEFINED" in _x};
