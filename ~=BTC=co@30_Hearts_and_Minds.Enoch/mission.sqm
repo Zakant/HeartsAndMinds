@@ -24,14 +24,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9132.4834,161.78761,6716.873};
-		dir[]={-0.47538695,-0.41237694,-0.77714914};
-		up[]={-0.21519168,0.91100848,-0.351789};
-		aside[]={-0.85305941,1.5378464e-007,0.52182174};
+		pos[]={9120.46,172.82597,6720.6567};
+		dir[]={-0.43741807,-0.49089995,-0.75345111};
+		up[]={-0.24646918,0.87121576,-0.42454278};
+		aside[]={-0.86482608,-2.8824434e-007,0.50207639};
 	};
 };
 binarizationWanted=0;
-sourceName="=BTC=co@30_Hearts_and_Minds";
+sourceName="~=BTC=co@30_Hearts_and_Minds";
 addons[]=
 {
 	"A3_Ui_F",
@@ -11078,7 +11078,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9102.0869,130.98753,6618.1191};
+						position[]={9102.0645,130.98723,6618.0977};
 						angles[]={6.271987,3.9618974,0.0032018756};
 					};
 					side="Empty";
@@ -11089,7 +11089,6 @@ class Mission
 					};
 					id=1338;
 					type="Land_ConnectorTent_01_wdl_closed_F";
-					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
