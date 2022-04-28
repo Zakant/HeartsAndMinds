@@ -20,7 +20,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=70;
+		nextID=74;
 	};
 	class Camera
 	{
@@ -429,24 +429,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"ARRAY"
-						};
-					};
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnButton";
 			expression="true";
 			class Value
@@ -461,6 +443,24 @@ class CustomAttributes
 						};
 					};
 					value=1;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
 				};
 			};
 		};
@@ -514,7 +514,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=5;
+									items=6;
 									class Item0
 									{
 										class data
@@ -585,6 +585,20 @@ class CustomAttributes
 											value="ace_repair_addspareparts";
 										};
 									};
+									class Item5
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="zcs_main_enabled";
+										};
+									};
 								};
 							};
 						};
@@ -601,7 +615,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=5;
+									items=6;
 									class Item0
 									{
 										class data
@@ -783,6 +797,51 @@ class CustomAttributes
 										};
 									};
 									class Item4
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item5
 									{
 										class data
 										{
@@ -4359,7 +4418,7 @@ class Mission
 					};
 					id=1282;
 					type="RHS_MELB_MH6M";
-					atlOffset=0.090011597;
+					atlOffset=0.090042114;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4386,7 +4445,7 @@ class Mission
 				};
 			};
 			id=726;
-			atlOffset=-0.93598938;
+			atlOffset=-0.93495178;
 		};
 		class Item41
 		{
@@ -5394,6 +5453,7 @@ class Mission
 			};
 			id=1182;
 			type="PortableHelipadLight_01_red_F";
+			atlOffset=0.10578918;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -8125,13 +8185,14 @@ class Mission
 						angles[]={0,1.5254049,0};
 					};
 					side="Empty";
+					flags=4;
 					class Attributes
 					{
 						createAsSimpleObject=1;
 					};
 					id=1016;
 					type="Land_Bandage_F";
-					atlOffset=0.81568909;
+					atlOffset=0.021102905;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8165,13 +8226,14 @@ class Mission
 						angles[]={0,1.5254049,0};
 					};
 					side="Empty";
+					flags=4;
 					class Attributes
 					{
 						createAsSimpleObject=1;
 					};
 					id=1017;
 					type="Land_Bandage_F";
-					atlOffset=0.81570435;
+					atlOffset=0.021102905;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8205,13 +8267,14 @@ class Mission
 						angles[]={0,1.5254049,0};
 					};
 					side="Empty";
+					flags=4;
 					class Attributes
 					{
 						createAsSimpleObject=1;
 					};
 					id=1018;
 					type="Land_Bandage_F";
-					atlOffset=0.81567383;
+					atlOffset=0.021102905;
 					class CustomAttributes
 					{
 						class Attribute0
