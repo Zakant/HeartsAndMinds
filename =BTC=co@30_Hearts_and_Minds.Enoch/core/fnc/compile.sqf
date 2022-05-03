@@ -251,6 +251,12 @@ btc_debug_fnc_message = compileScript ["core\fnc\debug\message.sqf"];
 //EH
 btc_eh_fnc_trackItem = compileScript ["core\fnc\eh\trackItem.sqf"];
 
+//FIRINGRANGE (Zakant)
+btc_firingrange_fnc_createAction     = compileScript ["core\fnc\firingrange\createAction.sqf"];
+btc_firingrange_fnc_flagEventHandler = compileScript ["core\fnc\firingrange\flagEventHandler.sqf"];
+btc_firingrange_fnc_setup            = compileScript ["core\fnc\firingrange\setup.sqf"];
+btc_firingrange_fnc_toggleState      = compileScript ["core\fnc\firingrange\toggleState.sqf"];
+
 //FLAG
 btc_flag_fnc_int = compileScript ["core\fnc\flag\int.sqf"];
 

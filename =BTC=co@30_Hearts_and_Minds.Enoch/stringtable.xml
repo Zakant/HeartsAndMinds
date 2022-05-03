@@ -2117,6 +2117,12 @@
                 <Czech>Rozbijte zámek dveří</Czech>
             </Key>
         </Container>
+        <Container name="Firingrange">
+            <Key ID="STR_BTC_HAM_ACTION_TOOGLE_RANGE">
+                <Original>Toogle firing range</Original>
+                <German>Schießbetrieb umschalten</German>
+            </Key>
+        </Container>
     </Package>
     <Package name="Conversations">
         <Container name="Conversations: Info">
