@@ -2,7 +2,7 @@
 btc_version = [
     1,
     22,
-    2
+    3
 ];
 diag_log format (["=BTC= HEARTS AND MINDS VERSION %1.%2.%3"] + btc_version);
 
@@ -150,7 +150,6 @@ if (isServer) then {
 
     //Hideout
     btc_hideouts = []; publicVariable "btc_hideouts";
-    btc_hideouts_id = 0;
     btc_hideouts_radius = 800;
     if (btc_hideout_n isEqualTo 99) then {
         btc_hideout_n = round random 10;
