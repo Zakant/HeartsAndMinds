@@ -143,7 +143,9 @@ private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
         "_type", "_pos", "_dir", "", "_cargo",
         "_inventory", "_vectorPos", "_isContaminated", "",
         ["_flagTexture", "", [""]],
-        ["_turretMagazines", [], [[]]]
+        ["_turretMagazines", [], [[]]],
+        ["_notuse", "", [""]],
+        ["_tagTexture", "", [""]]
     ];
 
     private _data = [];
@@ -160,6 +162,7 @@ private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
     _data pushBack []; // ViV
     _data pushBack _flagTexture;
     _data pushBack _turretMagazines;
+    _data pushBack _tagTexture;
 
     private _fakeViV = isVehicleCargo attachedTo _x;
     if (
@@ -186,11 +189,8 @@ profileNamespace setVariable [format ["btc_hm_%1_vehs", _name], +_array_veh];
 //Objects status
 private _array_obj = [];
 {
-    private _data = [];
     if !(!alive _x || isNull _x) then {
-        _data = [_x] call btc_db_fnc_saveObjectStatus;
-    };
-    if (_data isNotEqualTo []) then {
+        private _data = [_x] call btc_db_fnc_saveObjectStatus;
         _array_obj pushBack _data;
     };
 } forEach (btc_log_obj_created select {
@@ -216,9 +216,6 @@ profileNamespace setVariable [format ["btc_hm_%1_tags", _name], +_tags_propertie
 
 //Player respawn tickets
 if (btc_p_respawn_ticketsAtStart >= 0) then {
-    if (btc_p_respawn_ticketsShare) then {
-        btc_respawn_tickets set [str btc_player_side, [btc_player_side] call BIS_fnc_respawnTickets];
-    };
     profileNamespace setVariable [format ["btc_hm_%1_respawnTickets", _name], +btc_respawn_tickets];
 
     private _deadBodyPlayers = (btc_body_deadPlayers  - [objNull]) apply {[
@@ -232,6 +229,22 @@ if (btc_p_respawn_ticketsAtStart >= 0) then {
     ]};
     profileNamespace setVariable [format ["btc_hm_%1_deadBodyPlayers", _name], +_deadBodyPlayers];
 };
+
+//Player slots
+{
+    if (alive _x) then {
+        _x call btc_slot_fnc_serializeState;
+    };
+} forEach (allPlayers - entities "HeadlessClient_F");
+private _slots_serialized = +btc_slots_serialized;
+{
+    if (btc_debug_log) then {
+        [format ["btc_slots_serialized %1 %2", _x, _y], __FILE__, [false]] call btc_debug_fnc_message;
+    };
+    if (_y isEqualTo []) then {continue};
+    _y set [6, typeOf (_y select 6)];
+} forEach _slots_serialized;
+profileNamespace setVariable [format ["btc_hm_%1_slotsSerialized", _name], +_slots_serialized];
 
 //Player Markers
 private _player_markers = allMapMarkers select {"_USER_DEFINED" in _x};
