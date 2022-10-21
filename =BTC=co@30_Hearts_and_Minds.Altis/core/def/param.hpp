@@ -87,7 +87,7 @@ class Params {
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TICKETSATSTART"]);
         values[]={-1,0,1,2,3,4,5,10,15,20,25,30,50,70,100,150,200};
         texts[]={$STR_DISABLED,"0","1","2","3","4","5","10","15","20","25","30","50","70","100","150","200"};
-        default = 3;
+        default = 10;
     };
     class btc_p_respawn_ticketsLost { // Number of tickets lost per death:
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TICKETSLOST"]);
@@ -99,13 +99,13 @@ class Params {
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TICKETSHARE"]);
         values[]={0,1};
         texts[]={$STR_BTC_HAM_RESP_SAMEFACTION, $STR_BTC_HAM_RESP_NOTSHARE};
-        default = 1;
+        default = 0;
     };
     class btc_p_body_timeBeforeShowMarker { // Time before showing marker of dead player's body:
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_TIMEBEFORESHOWMARKER"]);
         values[]={-1,0,5,10,30,60};
         texts[]={$STR_DISABLED,"0 min","5 min","10 min","30 min","60 min"};
-        default = 10;
+        default = 0;
     };
     class btc_p_respawn_arsenal { // ACE Arsenal available on respawn after been killed:
         title = __EVAL(format ["      %1", localize "STR_BTC_HAM_RESP_ENABLEARSENAL"]);
