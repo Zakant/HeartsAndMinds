@@ -673,9 +673,56 @@ switch (_p_en) do {
     };
     case "IND_G_F" : {
         btc_type_units = btc_type_units - ["O_G_Soldier_LAT_F"];  // Remove AT soldiers.
+
+        // Remove ION with winter camo
+        btc_type_units = btc_type_units - [ "CUP_I_PMC_Winter_Sniper", 
+                                            "CUP_I_PMC_Winter_Medic", 
+                                            "CUP_I_PMC_Winter_Soldier_MG", 
+                                            "CUP_I_PMC_Winter_Soldier_MG_PKM", 
+                                            "CUP_I_PMC_Winter_Soldier_AT", 
+                                            "CUP_I_PMC_Winter_Engineer", 
+                                            "CUP_I_PMC_Winter_Soldier_M4A3", 
+                                            "CUP_I_PMC_Winter_Soldier", 
+                                            "CUP_I_PMC_Winter_Soldier_GL", 
+                                            "CUP_I_PMC_Winter_Crew", 
+                                            "CUP_I_PMC_Winter_Pilot", 
+                                            "CUP_I_PMC_Winter_Sniper_KSVK", 
+                                            "CUP_I_PMC_Winter_Soldier_AA", 
+                                            "CUP_I_PMC_Winter_Soldier_TL" ];
+
         btc_type_at = ["O_G_Soldier_LAT2_F"];
 
         btc_type_motorized = btc_type_motorized + ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
+
+        btc_type_motorized = btc_type_motorized - [ "CUP_I_nM1025_M2_ION_WIN", 
+                                                    "CUP_I_nM1025_M2_DF_ION_WIN", 
+                                                    "CUP_I_nM1025_M240_ION_WIN", 
+                                                    "CUP_I_nM1025_M240_DF_ION_WIN", 
+                                                    "CUP_I_nM1025_Mk19_ION_WIN", 
+                                                    "CUP_I_nM1025_Mk19_DF_ION_WIN", 
+                                                    "CUP_I_nM1025_Unarmed_ION_WIN", 
+                                                    "CUP_I_nM1025_Unarmed_DF_ION_WIN", 
+                                                    "CUP_B_nM1025_SOV_M2_ION_WIN", 
+                                                    "CUP_B_nM1025_SOV_Mk19_ION_WIN", 
+                                                    "CUP_I_nM1035_amb_ION_WIN", 
+                                                    "CUP_I_nM1035_amb_DF_ION_WIN", 
+                                                    "CUP_I_nM1036_TOW_ION_WIN", 
+                                                    "CUP_I_nM1036_TOW_DF_ION_WIN", 
+                                                    "CUP_I_nM1037sc_ION_WIN", 
+                                                    "CUP_I_nM1037sc_DF_ION_WIN", 
+                                                    "CUP_I_nM1038_ION_WIN", 
+                                                    "CUP_I_nM1038_DF_ION_WIN", 
+                                                    "CUP_I_nM1038_4s_ION_WIN", 
+                                                    "CUP_I_nM1038_4s_DF_ION_WIN", 
+                                                    "CUP_I_nM1038_Ammo_ION_WIN", 
+                                                    "CUP_I_nM1038_Ammo_DF_ION_WIN", 
+                                                    "CUP_I_nM1038_Repair_ION_WIN", 
+                                                    "CUP_I_nM1038_Repair_DF_ION_WIN", 
+                                                    "CUP_I_RG31_Mk19_W_ION", 
+                                                    "CUP_I_RG31E_M2_W_ION", 
+                                                    "CUP_I_RG31_M2_W_ION", 
+                                                    "CUP_I_RG31_M2_W_GC_ION" ];
+
         btc_type_motorized_armed = btc_type_motorized_armed + ["I_Heli_light_03_F"];
     };
     case "IND_C_F" : {
