@@ -40,18 +40,20 @@ private _structure = createVehicle [_fob_structure, _pos, [], 0, "CAN_COLLIDE"];
 
 _structure setDir _direction;
 
-private _marker = createMarker [_FOB_name, _pos];
-_marker setMarkerSize [1, 1];
-_marker setMarkerType "b_hq";
-_marker setMarkerText _FOB_name;
-_marker setMarkerColor "ColorBlue";
-_marker setMarkerShape "ICON";
+private _results = [_FOB_name, _structure, _flag, false] call btc_fob_fnc_register;
 
-(_fobs select 0) pushBack _marker;
+// private _marker = createMarker [_FOB_name, _pos];
+// _marker setMarkerSize [1, 1];
+// _marker setMarkerType "b_hq";
+// _marker setMarkerText _FOB_name;
+// _marker setMarkerColor "ColorBlue";
+// _marker setMarkerShape "ICON";
+
+(_fobs select 0) pushBack (_results select 0);
 (_fobs select 1) pushBack _structure;
 (_fobs select 2) pushBack _flag;
-[_flag, "Deleted", {[_thisArgs select 0, _thisArgs select 1] call BIS_fnc_removeRespawnPosition}, [btc_player_side, _flag, _FOB_name] call BIS_fnc_addRespawnPosition] call CBA_fnc_addBISEventHandler;
+// [_flag, "Deleted", {[_thisArgs select 0, _thisArgs select 1] call BIS_fnc_removeRespawnPosition}, [btc_player_side, _flag, _FOB_name] call BIS_fnc_addRespawnPosition] call CBA_fnc_addBISEventHandler;
 
-_structure addEventHandler ["Killed", btc_fob_fnc_killed];
+// _structure addEventHandler ["Killed", btc_fob_fnc_killed];
 
 [_marker, _structure, _flag]

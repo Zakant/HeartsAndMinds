@@ -137,8 +137,14 @@ _action = ["Shower_act", getText(configfile >> "CfgVehicles" >> "DeconShower_02_
 //FOB
 _action = ["Mount_FOB", localize "STR_BTC_HAM_ACTION_FOB_MOUNT", "\A3\Ui_f\data\Map\Markers\NATO\b_hq.paa", {_target spawn btc_fob_fnc_create}, {!btc_log_placing && !(player getVariable ["ace_dragging_isCarrying", false])}] call ace_interact_menu_fnc_createAction;
 [btc_fob_mat, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
-_action = ["Dismantle_FOB", localize "STR_BTC_HAM_ACTION_FOB_DISMANTLE", "", {_target remoteExecCall ["btc_fob_fnc_dismantle_s", 2]}, {true}, {}, [], [0, 0, -2], 5] call ace_interact_menu_fnc_createAction;
-[btc_fob_flag, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
+
+_action = ["FOB_FlagActions", "FOB", "", {}, {_target getVariable ["btc_fob_isFOBFlag", false]}, {}, [], [0, -0.45, -2.4], 5] call ace_interact_menu_fnc_createAction;
+[btc_fob_flag, 0, [], _action] call ace_interact_menu_fnc_addActionToClass;
+
+// _action = ["Dismantle_FOB", localize "STR_BTC_HAM_ACTION_FOB_DISMANTLE", "", {_target remoteExecCall ["btc_fob_fnc_dismantle_s", 2]}, {_target getVariable ["btc_fob_can_dismantle", true]}, {}, [], [0, 0, -2], 5] call ace_interact_menu_fnc_createAction;
+// [btc_fob_flag, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
+_action = ["Dismantle_FOB", localize "STR_BTC_HAM_ACTION_FOB_DISMANTLE", "", {_target remoteExecCall ["btc_fob_fnc_dismantle_s", 2]}, {_target getVariable ["btc_fob_can_dismantle", true]}] call ace_interact_menu_fnc_createAction;
+[btc_fob_flag, 0, ["FOB_FlagActions"], _action] call ace_interact_menu_fnc_addActionToClass;
 
 //Orders
 _action = ["Civil_Orders", localize "STR_BTC_HAM_ACTION_ORDERS_MAIN", "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa", {}, {true}] call ace_interact_menu_fnc_createAction;
@@ -207,7 +213,8 @@ _actions pushBack ["FOB", localize "STR_BTC_HAM_ACTION_REDEPLOYFOB", "\A3\Ui_f\d
     private _action = _x call ace_interact_menu_fnc_createAction;
     [btc_gear_object, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
     if (btc_p_respawn_fromFOBToBase) then {
-        [btc_fob_flag, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
+        // [btc_fob_flag, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;
+        [btc_fob_flag, 0, ["FOB_FlagActions"], _action] call ace_interact_menu_fnc_addActionToClass;
     };
 } forEach _actions;
 {
@@ -216,7 +223,8 @@ _actions pushBack ["FOB", localize "STR_BTC_HAM_ACTION_REDEPLOYFOB", "\A3\Ui_f\d
     _action = ["FOB" + _cardinal, localize _cardinal, "\A3\ui_f\data\igui\cfg\simpleTasks\types\map_ca.paa", {}, {true}, btc_fob_fnc_redeploy, _degrees] call ace_interact_menu_fnc_createAction;
     [btc_gear_object, 0, ["ACE_MainActions", "FOB"], _action] call ace_interact_menu_fnc_addActionToObject;
     if (btc_p_respawn_fromFOBToBase) then {
-        [btc_fob_flag, 0, ["ACE_MainActions", "FOB"], _action] call ace_interact_menu_fnc_addActionToClass;
+        // [btc_fob_flag, 0, ["ACE_MainActions", "FOB"], _action] call ace_interact_menu_fnc_addActionToClass;
+        [btc_fob_flag, 0, ["FOB_FlagActions", "FOB"], _action] call ace_interact_menu_fnc_addActionToClass;
     };
 } forEach [["str_q_north_east", [0, 90]], ["str_q_south_east", [90, 180]], ["str_q_south_west", [180, 270]], ["str_q_north_west", [270, 360]]];
 
