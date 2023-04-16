@@ -218,15 +218,7 @@ profileNamespace setVariable [format ["btc_hm_%1_tags", _name], +_tags_propertie
 if (btc_p_respawn_ticketsAtStart >= 0) then {
     profileNamespace setVariable [format ["btc_hm_%1_respawnTickets", _name], +btc_respawn_tickets];
 
-    private _deadBodyPlayers = (btc_body_deadPlayers  - [objNull]) apply {[
-        typeOf _x,
-        getPosASL _x,
-        getDir _x,
-        getUnitLoadout _x,
-        _x call btc_body_fnc_dogtagGet,
-        _x in btc_chem_contaminated,
-        getForcedFlagTexture _x
-    ]};
+    private _deadBodyPlayers = [btc_body_deadPlayers] call btc_body_fnc_get;
     profileNamespace setVariable [format ["btc_hm_%1_deadBodyPlayers", _name], +_deadBodyPlayers];
 };
 
@@ -242,7 +234,11 @@ private _slots_serialized = +btc_slots_serialized;
         [format ["btc_slots_serialized %1 %2", _x, _y], __FILE__, [false]] call btc_debug_fnc_message;
     };
     if (_y isEqualTo []) then {continue};
-    _y set [6, typeOf (_y select 6)];
+    private _vehicle = _y select 6;
+    if !(isNull _vehicle) then {
+        _y set [0, getPosASL _vehicle];
+    };
+    _y set [6, typeOf _vehicle];
 } forEach _slots_serialized;
 profileNamespace setVariable [format ["btc_hm_%1_slotsSerialized", _name], +_slots_serialized];
 

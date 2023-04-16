@@ -6,6 +6,8 @@ if (isServer) then {
     btc_body_fnc_dogtagGet = compileScript ["core\fnc\body\dogtagGet.sqf"];
     btc_body_fnc_dogtagSet = compileScript ["core\fnc\body\dogtagSet.sqf"];
     btc_body_fnc_setBodyBag = compileScript ["core\fnc\body\setBodyBag.sqf"];
+    btc_body_fnc_create = compileScript ["core\fnc\body\create.sqf"];
+    btc_body_fnc_get = compileScript ["core\fnc\body\get.sqf"];
 
     //CACHE
     btc_cache_fnc_find_pos = compileScript ["core\fnc\cache\find_pos.sqf"];
@@ -28,6 +30,7 @@ if (isServer) then {
     btc_fnc_typeOf = compileScript ["core\fnc\common\typeOf.sqf"];
     btc_fnc_roof = compileScript ["core\fnc\common\roof.sqf"];
     btc_fnc_moveOut = compileScript ["core\fnc\common\moveOut.sqf"];
+    btc_fnc_changeWeather = compileScript ["core\fnc\common\changeWeather.sqf"];
 
     //CHEM
     btc_chem_fnc_checkLoop = compileScript ["core\fnc\chem\checkLoop.sqf"];
