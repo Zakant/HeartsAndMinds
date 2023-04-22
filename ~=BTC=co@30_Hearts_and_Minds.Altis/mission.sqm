@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=2358;
+		nextID=2330;
 	};
 	class MarkerIDProvider
 	{
@@ -24,14 +24,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={17585.051,41.798679,14456.879};
-		dir[]={-0.82338905,-0.53006011,0.20320074};
-		up[]={-0.51471752,0.84788054,0.12702334};
-		aside[]={0.23963115,-5.0594099e-007,0.97100365};
+		pos[]={17537.838,22.968433,14472.775};
+		dir[]={-0.71151006,-0.50765628,0.48606715};
+		up[]={-0.41965091,0.86119604,0.28668368};
+		aside[]={0.56415665,-8.1040344e-007,0.82581419};
 	};
 };
 binarizationWanted=0;
-sourceName="=BTC=co@30_Hearts_and_Minds";
+sourceName="~=BTC=co@30_Hearts_and_Minds";
 addons[]=
 {
 	"A3_Ui_F",
@@ -137,18 +137,13 @@ addons[]=
 	"A3_Props_F_AoW_Items_Decorative",
 	"Jbad_misc_market",
 	"A3_Structures_F_Furniture",
-	"CUP_WheeledVehicles_MTVR",
-	"A3_Structures_F_Mil_TentHangar",
-	"A3_Structures_F_Enoch_Military_Camps",
-	"A3_Structures_F_Bootcamp_Civ_Camping",
-	"A3_Structures_F_Orange_Walls_Plastic",
-	"ace_logistics_wirecutter"
+	"CUP_WheeledVehicles_MTVR"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=66;
+		items=63;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -563,27 +558,6 @@ class AddonsMetaData
 			className="CUP_WheeledVehicles_MTVR";
 			name="CUP_WheeledVehicles_MTVR";
 		};
-		class Item63
-		{
-			className="A3_Structures_F_Enoch_Military";
-			name="Arma 3 Contact Platform - Military Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item64
-		{
-			className="A3_Structures_F_Orange";
-			name="Arma 3 Orange - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item65
-		{
-			className="ace_logistics_wirecutter";
-			name="ACE3 - Logistics Wire Cutter";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
 	};
 };
 dlcs[]=
@@ -993,7 +967,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=539;
+		items=522;
 		class Item0
 		{
 			dataType="Marker";
@@ -16163,7 +16137,6 @@ class Mission
 			};
 			id=2208;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item436
 		{
@@ -16451,7 +16424,6 @@ class Mission
 			};
 			id=2250;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item448
 		{
@@ -16468,7 +16440,6 @@ class Mission
 			};
 			id=2252;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item449
 		{
@@ -16517,7 +16488,6 @@ class Mission
 			};
 			id=2256;
 			type="Land_CncWall1_F";
-			atlOffset=4.7683716e-007;
 		};
 		class Item452
 		{
@@ -16534,7 +16504,6 @@ class Mission
 			};
 			id=2257;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item453
 		{
@@ -16551,7 +16520,6 @@ class Mission
 			};
 			id=2258;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item454
 		{
@@ -16584,7 +16552,6 @@ class Mission
 			};
 			id=2260;
 			type="Land_CncWall1_F";
-			atlOffset=4.7683716e-007;
 		};
 		class Item456
 		{
@@ -16601,7 +16568,6 @@ class Mission
 			};
 			id=2261;
 			type="Land_CncWall1_F";
-			atlOffset=4.7683716e-007;
 		};
 		class Item457
 		{
@@ -16634,7 +16600,6 @@ class Mission
 			};
 			id=2263;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item459
 		{
@@ -16651,7 +16616,6 @@ class Mission
 			};
 			id=2264;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item460
 		{
@@ -16780,7 +16744,6 @@ class Mission
 			};
 			id=2273;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item468
 		{
@@ -16797,7 +16760,6 @@ class Mission
 			};
 			id=2274;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item469
 		{
@@ -16926,7 +16888,6 @@ class Mission
 			};
 			id=2283;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item477
 		{
@@ -16943,7 +16904,6 @@ class Mission
 			};
 			id=2284;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item478
 		{
@@ -16960,7 +16920,6 @@ class Mission
 			};
 			id=2285;
 			type="Land_CncWall1_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item479
 		{
@@ -17047,7 +17006,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={17550.23,8.3522158,14453.114};
+				position[]={17561.75,8.4238358,14436.75};
+				angles[]={6.272521,0,0.018663859};
 			};
 			side="Empty";
 			flags=4;
@@ -17062,7 +17022,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={17549.865,7.7820187,14454.375};
+				position[]={17560.375,7.8357987,14438.25};
+				angles[]={-0,0,0.018660666};
 			};
 			side="Empty";
 			flags=4;
@@ -17087,7 +17048,6 @@ class Mission
 			};
 			id=2293;
 			type="Land_CncWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item487
 		{
@@ -17104,7 +17064,6 @@ class Mission
 			};
 			id=2295;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item488
 		{
@@ -17137,7 +17096,6 @@ class Mission
 			};
 			id=2297;
 			type="Land_HBarrierTower_F";
-			atlOffset=4.7683716e-007;
 		};
 		class Item490
 		{
@@ -17154,6 +17112,7 @@ class Mission
 			};
 			id=2298;
 			type="Land_HBarrierWall4_F";
+			atlOffset=4.7683716e-007;
 		};
 		class Item491
 		{
@@ -17170,7 +17129,6 @@ class Mission
 			};
 			id=2299;
 			type="Land_HBarrierWall4_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item492
 		{
@@ -17267,6 +17225,7 @@ class Mission
 			};
 			id=2305;
 			type="Land_HBarrierWall6_F";
+			atlOffset=4.7683716e-007;
 		};
 		class Item498
 		{
@@ -17283,7 +17242,6 @@ class Mission
 			};
 			id=2306;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item499
 		{
@@ -17300,7 +17258,6 @@ class Mission
 			};
 			id=2307;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item500
 		{
@@ -17333,7 +17290,6 @@ class Mission
 			};
 			id=2309;
 			type="Land_HBarrier_1_F";
-			atlOffset=4.7683716e-007;
 		};
 		class Item502
 		{
@@ -17431,7 +17387,6 @@ class Mission
 			};
 			id=2315;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item508
 		{
@@ -17546,7 +17501,6 @@ class Mission
 			};
 			id=2322;
 			type="Land_HBarrierWall6_F";
-			atlOffset=-4.7683716e-007;
 		};
 		class Item515
 		{
@@ -17579,7 +17533,7 @@ class Mission
 			};
 			id=2324;
 			type="Land_HBarrier_1_F";
-			atlOffset=9.5367432e-007;
+			atlOffset=4.7683716e-007;
 		};
 		class Item517
 		{
@@ -17629,7 +17583,6 @@ class Mission
 			};
 			id=2327;
 			type="Land_RepairDepot_01_tan_F";
-			atlOffset=-3.3378601e-006;
 		};
 		class Item520
 		{
@@ -17662,276 +17615,6 @@ class Mission
 			};
 			id=2329;
 			type="CUP_B_MTVR_Ammo_BAF_DES";
-		};
-		class Item522
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17511.25,11.389965,14491.875};
-				angles[]={0,2.3038347,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2330;
-			type="Land_TentHangar_V1_F";
-		};
-		class Item523
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17518.625,8.6139431,14515.875};
-				angles[]={6.2751846,5.4454908,0.0080009829};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=2331;
-			type="Land_ConnectorTent_01_white_closed_F";
-		};
-		class Item524
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17523.375,9.6301346,14505.375};
-				angles[]={-0,2.3212879,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=2334;
-			type="Land_PartyTent_01_F";
-		};
-		class Item525
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17515.875,8.5979252,14512.875};
-				angles[]={-0,5.4454908,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=2335;
-			type="Land_ConnectorTent_01_white_closed_F";
-		};
-		class Item526
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17513,8.5979252,14509.75};
-				angles[]={-0,5.4454908,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=2336;
-			type="Land_ConnectorTent_01_white_closed_F";
-		};
-		class Item527
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17521.75,11.292809,14514.5};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2337;
-			type="Flag_RedCrystal_F";
-		};
-		class Item528
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17526.75,11.276805,14497};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2338;
-			type="FlagCarrierRedCrystal_EP1";
-		};
-		class Item529
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17526.625,7.9137669,14511.125};
-				angles[]={0,0.75049186,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2345;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item530
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17533.875,7.9058003,14501.625};
-				angles[]={0,5.3930674,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2346;
-			type="Land_PlasticNetFence_01_short_F";
-		};
-		class Item531
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17528.375,7.9058003,14495.75};
-				angles[]={0,2.3387413,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2347;
-			type="Land_PlasticNetFence_01_short_F";
-		};
-		class Item532
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17520.875,7.9457741,14516.5};
-				angles[]={0,0.75049186,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2348;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item533
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17515.25,7.9137669,14516.375};
-				angles[]={0,5.4628811,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2349;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item534
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17512.5,8.0028877,14507.5};
-				angles[]={0,3.8746319,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2350;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item535
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17511.125,7.9058003,14511.875};
-				angles[]={0,5.410521,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2351;
-			type="Land_PlasticNetFence_01_short_F";
-		};
-		class Item536
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17518.25,7.9137669,14502.25};
-				angles[]={0,3.8746319,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2352;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item537
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17524,7.9137669,14497};
-				angles[]={0,3.8746319,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2353;
-			type="Land_PlasticNetFence_01_long_F";
-		};
-		class Item538
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17532.25,7.9137669,14505.875};
-				angles[]={0,3.8746316,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=2357;
-			type="Land_PlasticNetFence_01_long_F";
 		};
 	};
 	class Connections
