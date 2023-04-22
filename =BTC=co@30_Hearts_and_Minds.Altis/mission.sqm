@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=2194;
+		nextID=2196;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=120;
+		nextID=125;
 	};
 	class Camera
 	{
-		pos[]={17546.16,55.799572,14381.07};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={17559.424,28.574642,14438.768};
+		dir[]={-0.23518942,-0.37794679,0.89547199};
+		up[]={-0.096010409,0.92582315,0.36555681};
+		aside[]={0.96720773,9.6551958e-008,0.25403073};
 	};
 };
 binarizationWanted=0;
@@ -134,13 +134,14 @@ addons[]=
 	"AF_MSO_B",
 	"tfar_antennas",
 	"CUP_WaterVehicles_MK10",
-	"A3_Props_F_AoW_Items_Decorative"
+	"A3_Props_F_AoW_Items_Decorative",
+	"A3_Props_F_Exp_Industrial_HeavyEquipment"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=61;
+		items=62;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -545,6 +546,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item61
+		{
+			className="A3_Props_F_Exp";
+			name="Arma 3 Apex - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -583,18 +591,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					singleType="ARRAY";
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnButton";
 			expression="true";
 			class Value
@@ -603,6 +599,18 @@ class CustomAttributes
 				{
 					singleType="SCALAR";
 					value=1;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
 				};
 			};
 		};
@@ -954,7 +962,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=431;
+		items=433;
 		class Item0
 		{
 			dataType="Marker";
@@ -9224,14 +9232,14 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=-45;
+							value=30;
 						};
 					};
 				};
@@ -9354,14 +9362,14 @@ class Mission
 				};
 				class Attribute10
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=30;
+							value=-45;
 						};
 					};
 				};
@@ -10769,14 +10777,14 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=-30;
+							value=10;
 						};
 					};
 				};
@@ -10886,14 +10894,14 @@ class Mission
 				};
 				class Attribute9
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=10;
+							value=-30;
 						};
 					};
 				};
@@ -10936,14 +10944,14 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Light_1_Pitch";
-					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
+					property="Light_3_Pitch";
+					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=-45;
+							value=30;
 						};
 					};
 				};
@@ -11066,14 +11074,14 @@ class Mission
 				};
 				class Attribute10
 				{
-					property="Light_3_Pitch";
-					expression="_this animateSource ['Light_3_pitch_source',_value,true]";
+					property="Light_1_Pitch";
+					expression="_this animateSource ['Light_1_pitch_source',_value,true]";
 					class Value
 					{
 						class data
 						{
 							singleType="SCALAR";
-							value=30;
+							value=-45;
 						};
 					};
 				};
@@ -15826,6 +15834,38 @@ class Mission
 			name="FOS - MASH (NATO)";
 			id=2189;
 			atlOffset=185.97;
+		};
+		class Item431
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17543.125,10.44874,14482.625};
+				angles[]={-0,4.7474246,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2194;
+			type="Land_Excavator_01_abandoned_F";
+		};
+		class Item432
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17546.375,9.6108074,14465.625};
+				angles[]={0.0013372133,0.50614548,6.2818484};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2195;
+			type="B_Truck_01_Repair_F";
 		};
 	};
 	class Connections
