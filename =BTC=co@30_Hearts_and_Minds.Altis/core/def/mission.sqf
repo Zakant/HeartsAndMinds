@@ -723,7 +723,8 @@ switch (_p_en) do {
                                                     "CUP_I_RG31_M2_W_ION", 
                                                     "CUP_I_RG31_M2_W_GC_ION",
                                                     "CUP_I_nM1036_TOW_ION", 
-                                                    "CUP_I_nM1036_TOW_DF_ION"];
+                                                    "CUP_I_nM1036_TOW_DF_ION",
+                                                    "CUP_I_LSV_02_AT_ION"];
 
         btc_type_motorized_armed = btc_type_motorized_armed + ["I_Heli_light_03_F"];
     };
