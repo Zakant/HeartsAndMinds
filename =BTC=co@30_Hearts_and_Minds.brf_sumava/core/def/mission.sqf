@@ -141,7 +141,7 @@ if (isServer) then {
     btc_delay_time = 0;
 
     //City
-    btc_city_blacklist = ["Lembork", "Karlin"];//NAME FROM CFG
+    btc_city_blacklist = [];//NAME FROM CFG
     btc_p_city_free_trigger_condition = if (_p_city_free_trigger isEqualTo 0) then {
         "thisList isEqualTo []"
     } else {
@@ -633,7 +633,7 @@ private _allfaction = ["CSLA","AFMC","FIA","US85","AWAKENED","AFR_ARMY","ARA_ARM
 _p_en = _allfaction select _p_en; //Select faction selected from mission parameter
 // _p_en = "IND_G_F"; // Hardcoded - FIA (Independent)
 // _allclasse = [[_p_en, "CUP_I_PMC_ION"], _p_en_AA, _p_en_tank] call btc_mil_fnc_class; //Create classes from factions, you can combine factions like that: [[_p_en , "IND_F"], _p_en_AA, _p_en_tank] call btc_mil_fnc_class;
-_allclasse = [[_p_en], _p_en_AA, _p_en_tank] call btc_mil_fnc_class; //Create classes from factions, you can combine factions like that: [[_p_en , "IND_F"], _p_en_AA, _p_en_tank] call btc_mil_fnc_class;
+_allclasse = [[_p_en, "CFP_I_WAGNER_WDL"], _p_en_AA, _p_en_tank] call btc_mil_fnc_class; //Create classes from factions, you can combine factions like that: [[_p_en , "IND_F"], _p_en_AA, _p_en_tank] call btc_mil_fnc_class;
 
 //Save class name to global variable
 btc_enemy_side = _allclasse select 0;
