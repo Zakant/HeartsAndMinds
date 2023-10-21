@@ -3,8 +3,8 @@
 
 <svg
    width="2048"
-   height="756"
-   viewBox="0 0 2048 756"
+   height="814.88843"
+   viewBox="0 0 2048 814.88843"
    version="1.1"
    id="svg5"
    xml:space="preserve"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.70710678"
-     inkscape:cx="1064.1957"
-     inkscape:cy="321.73359"
+     inkscape:cx="1068.4383"
+     inkscape:cy="325.97623"
      inkscape:window-width="2560"
      inkscape:window-height="1361"
      inkscape:window-x="2391"
@@ -43,7 +43,7 @@
        style="fill:#000000"
        d="M 9.8370761,123.50996 2065.786,130.06801"
        id="path245" /><g
-       transform="matrix(8.867803,0,0,9.6936544,105.19207,130.81179)"
+       transform="matrix(8.867803,0,0,9.6936544,105.19207,160.25601)"
        style="fill:#ff0000;stroke:#ffffff;stroke-width:0.504876"
        id="layer1-2"><rect
          width="71.23011"
@@ -60,12 +60,12 @@
        xml:space="preserve"
        style="font-size:142.321px;fill:#ffffff;stroke:#ffffff;stroke-width:1"
        x="852.23511"
-       y="430.91287"
+       y="460.35123"
        id="text430"
        transform="scale(0.99980084,1.0001992)"><tspan
          sodipodi:role="line"
          x="852.23511"
-         y="430.91287"
+         y="460.35123"
          style="font-size:142.321px;fill:#ffffff;stroke-width:1"
          id="tspan482">Fernmeldestand</tspan></text><text
        xml:space="preserve"
