@@ -2,7 +2,7 @@
 btc_version = [
     1,
     23,
-    5
+    6
 ];
 diag_log format (["=BTC= HEARTS AND MINDS VERSION %1.%2.%3"] + btc_version);
 
@@ -380,6 +380,10 @@ if (isServer) then {
     btc_delay_unit = 0.2;
     btc_delay_vehicle = 0.3;
     btc_delay_exec = 0.1;
+
+    //Explosives
+    btc_explosives = [];
+    btc_explosives_objectSide = createVehicle ["CBA_NamespaceDummy", [-1000, -1000, 0], [], 0, "NONE"];
 };
 
 //Civ
@@ -810,6 +814,8 @@ btc_rep_level_veryLow = 0;
 btc_rep_level_low = 200;
 btc_rep_level_normal = 500;
 btc_rep_level_high = 750;
+
+btc_rep_food = "ACE_Banana";
 
 //Headless
 btc_units_owners = [];
