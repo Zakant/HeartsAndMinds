@@ -24,9 +24,18 @@ params [
     ["_player", objNull, [objNull]]
 ];
 
-private _key = position _player;
-if !(btc_p_slot_isShare) then {
-    _key pushBack getPlayerUID _player;
+private _key = switch (btc_p_slot_saveMode) do {
+    case 0: { // per player and slot combination
+        private _key = position _player;
+        _key pushBack getPlayerUID _player;
+        _key
+    };
+    case 1: { // per slot
+        position _player
+    };
+    case 2: { // per player
+        [getPlayerUID _player]
+    };
 };
 
 _player setVariable ["btc_slot_key", _key];

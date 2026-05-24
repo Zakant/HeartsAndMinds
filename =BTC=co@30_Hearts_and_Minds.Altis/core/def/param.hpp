@@ -137,10 +137,10 @@ class Params {
         texts[]={$STR_DISABLED,$STR_ENABLED};
         default = 1;
     };
-    class btc_p_slot_isShare { // Each slot is share between players
-        title = __EVAL(format ["      %1", localize "STR_BTC_HAM_PARAM_SLOT_ISSHARE"]);
-        values[]={0,1};
-        texts[]={$STR_DISABLED, $STR_ENABLED};
+    class btc_p_slot_saveMode { // How to save/serialize a slot
+        title = __EVAL(format ["      %1", localize "STR_BTC_HAM_PARAM_SLOT_SAVEMODE"]);
+        values[]={0,1,2};
+        texts[]={$STR_BTC_HAM_PARAM_SLOT_PERPLAYERANDSLOT, $STR_BTC_HAM_PARAM_SLOT_PERSLOT, $STR_BTC_HAM_PARAM_SLOT_PERPLAYER}; // texts[]={"Per player and slot", "Per slot", "Per player"}
         default = 1;
     };
     class btc_p_type_title { // << Faction options >>
